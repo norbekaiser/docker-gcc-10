@@ -1,7 +1,7 @@
 FROM debian:stable-slim
 RUN DEBIAN_FRONTEND=noninteractiv apt-get update
 RUN DEBIAN_FRONTEND=noninteractiv apt-get upgrade -y
-RUN DEBIAN_FRONTEND=noninteractiv apt-get install apt-transport-https -y
+RUN DEBIAN_FRONTEND=noninteractiv apt-get install ca-certificates apt-transport-https -y
 RUN DEBIAN_FRONTEND=noninteractiv apt-get install -y --no-install-recommends wget lsb-release gnupg
 RUN DEBIAN_FRONTEND=noninteractiv wget -q -O - https://packages.norbert-ruehl.de/conf/apt.gpg.key | apt-key add -
 RUN DEBIAN_FRONTEND=noninteractiv apt-key fingerprint A455A434
