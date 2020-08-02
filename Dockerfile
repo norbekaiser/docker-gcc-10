@@ -20,7 +20,7 @@ RUN cd gcc-src && mkdir build && cd build && ../configure \
 	--disable-multilib \
 	--program-suffix=-${GCC_MAJOR_VERSION} \
 	--prefix=/usr
-RUN cd gcc-src && make -C build 
+RUN cd gcc-src && make -C build -j -l $(nproc)
 RUN cd gcc-src && make -C build install
 RUN echo '/usr/lib64' > /etc/ld.so.conf.d/gcc-10.conf
 RUN DEBIAN_FRONTEND=noninteractiv apt-get remove -y gcc gcc-8
