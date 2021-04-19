@@ -1,7 +1,7 @@
 FROM debian:stable-slim
 #GCC Arguments
 ARG GCC_MAJOR_VERSION=10
-ARG GCC_MINOR_VERSION=2
+ARG GCC_MINOR_VERSION=3
 ARG GCC_PATCH_VERSION=0
 #Updating the Base Image
 RUN DEBIAN_FRONTEND=noninteractiv apt-get update
