@@ -23,7 +23,7 @@ RUN cd gcc-src && mkdir build && cd build && ../configure \
 RUN cd gcc-src && make -C build -j -l $(nproc)
 RUN cd gcc-src && make -C build install
 RUN echo '/usr/lib64' > /etc/ld.so.conf.d/gcc-10.conf
-RUN DEBIAN_FRONTEND=noninteractiv apt-get remove -y gcc gcc-8
+RUN DEBIAN_FRONTEND=noninteractiv apt-get remove -y gcc gcc-*
 RUN DEBIAN_FRONTEND=noninteractiv apt-get autoremove -y
 RUN DEBIAN_FRONTEND=noninteractiv apt-get install -y make binutils
 RUN ls -al /usr/bin/gc*
